@@ -12,11 +12,13 @@ int main ()
     {
         Point2D(),
         P,
-        Point2D("B", 2, -1)
+        Point2D("B", 5, -1),
+        Point2D("E", 7, 1),
+        Point2D("C", 1, 1),
+        Point2D("D", 0, 0)
     };
 
-    std::cout << "Exemple de point : " << P << std::endl;
-    std::cout << "Exemple de point : " << points.at(2) << std::endl;
+    plusProcheVoisin(points, P, 1);
 
     return 0;
 }
