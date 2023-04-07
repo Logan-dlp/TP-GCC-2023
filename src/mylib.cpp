@@ -2,6 +2,7 @@
 
 #include <random>
 #include <cmath>
+#include <list>
 
 
 int randomInt(int min, int max)
@@ -30,7 +31,7 @@ void formeCreuse(int x, int y)
 
 float distanceManhattan(Point2D p1, Point2D p2)
 {
-    return abs(p1.y-p1.x) + abs(p2.y-p2.x);
+    return abs(p2.x-p1.x) + abs(p2.y-p1.y);
 }
 
 
@@ -41,23 +42,15 @@ float distanceEuclidienne(Point2D p1, Point2D p2)
 
 void plusProcheVoisin(std::vector<Point2D> points,Point2D P, int dist)
 {
-    /*
-    std::vector<Point2D> ppv;
-    int Ppvsize = ppv.size();
-    int Psize = points.size();
-    //int rand = randomInt(0, Psize);
-    //P = points[rand];
-    for (int i = 0; i < Psize; ++i) {
-        if (distanceEuclidienne(points[i], P) <= dist){
-            ppv.push_back(P);
+    if (points.empty()) return;
+    int pointSize = (int)points.size();
+    int rand = randomInt(0, pointSize-1);
+    P = points.at(rand);
+    for (int i = 0; i < pointSize; ++i) {
+        if (distanceEuclidienne(points.at(i), P) <= (float)dist){
+            std::cout << points.at(i) << std::endl;
         }
     }
-    //std::cout << P << std::endl;
-    for (int i = 0; i < Ppvsize; ++i) {
-        std::cout << ppv[i] << std::endl;
-    }
-     */
-
 }
 
 void plusOuMoins()
