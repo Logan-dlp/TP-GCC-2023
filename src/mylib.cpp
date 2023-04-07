@@ -3,6 +3,7 @@
 #include <random>
 #include <cmath>
 #include <list>
+#include <string>
 
 
 int randomInt(int min, int max)
@@ -55,5 +56,43 @@ void plusProcheVoisin(std::vector<Point2D> points,Point2D P, int dist)
 
 void plusOuMoins()
 {
+    int rand = randomInt(0, 100);
+    int nbTour = randomInt(5, 15);
+    int nbCoup = 0;
+    int nbJoueur = 0;
+    std::string rePlay;
+    do{
+        std::cout << "Entré un nombre : ";
+        std::cin >> nbJoueur; std::cout << std::endl;
+        if (nbJoueur > 100){
+            std::cout << "Error, le nombre doit etre compris entre 0 et 100..." << std::endl;
+        } else if (nbJoueur < rand){
+            std::cout << "Plus ! Il te reste " << nbTour << " tour" << std::endl;
+            nbTour--;
+            nbCoup++;
+        } else if (nbJoueur > rand){
+            std::cout << "Moin ! Il te reste " << nbTour << " tour" << std::endl;
+            nbTour--;
+            nbCoup++;
+        } else if (nbJoueur == rand){
+            nbCoup++;
+            std::cout << "Bien joué, tu as gagner c'étais bien le numéro " << nbJoueur << " !" << " Tu as mis " << nbCoup << " tour !" << std::endl;
+            std::cout << "Tu veux rejouer ? ";
+            std::cin >> rePlay; std::cout << std::endl;
+            if (rePlay == "yes" || rePlay == "oui"){
+                plusOuMoins();
+            } else{
+                return;
+            }
+        }
+    }while(nbTour >= 0);
+    std::cout << "Perdu tu n'a plus de tour en réserve :'(" << std::endl;
+    std::cout << "Tu veux rejouer ? ";
+    std::cin >> rePlay; std::cout << std::endl;
+    if (rePlay == "yes" || rePlay == "oui"){
+        plusOuMoins();
+    } else{
+        return;
+    }
 
 }

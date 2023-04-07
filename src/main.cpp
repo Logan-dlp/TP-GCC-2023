@@ -8,6 +8,7 @@ int main ()
 {
     //formeCreuse(5,10);
 
+    /*
     Point2D P = Point2D(1, 1, "A");
     std::vector<Point2D> points =
     {
@@ -20,6 +21,9 @@ int main ()
     };
 
     plusProcheVoisin(points, P, 1);
+    */
+
+    plusOuMoins();
 
     return 0;
 }
