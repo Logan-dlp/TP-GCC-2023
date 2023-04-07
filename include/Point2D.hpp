@@ -8,9 +8,6 @@
 /// @brief Representation of a 2D point
 struct Point2D
 {
-    
-    /// @brief Name of the point
-    std::string label;
 
     /// @brief Position on the x axis
     int x;
@@ -18,7 +15,9 @@ struct Point2D
     /// @brief Position on the y axis
     int y;
 
-    
+    /// @brief Name of the point
+    std::string label;
+
     /// @fn Point2D()
     /// @brief Construct a new default Point2D object 
     Point2D();
@@ -29,7 +28,7 @@ struct Point2D
     /// @param label Name given to the point
     /// @param[in] _x Position on the x axis
     /// @param[in] _y Position on the y axis
-    Point2D(std::string _label, int _x, int _y);
+    Point2D(int _x, int _y, std::string _label = "unknown");
 
     /// @fn Point2D(const Point2D&)
     /// @brief Construct a new Point2D object per copy 
@@ -38,6 +37,11 @@ struct Point2D
 
     /// @brief 
     ~Point2D() = default;
+
+    /// @brief Override "=" operator
+    /// @param P An other Point2D
+    /// @return This instance with its new data
+    Point2D& operator=(Point2D P);
 
     /// @fn std::ostream& operator<<(std::ostream&, const Point2D&)
     /// @brief 

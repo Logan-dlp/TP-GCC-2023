@@ -28,7 +28,9 @@ elif [[ $1 = "-m" ]]; then
 elif [[ $1 = "-r" ]]; then
   cd build
   echo "# Running the projet"
-  ./tp
+  # On retire l'argument du script [-a|-m|-r] pour ne garder que ceux passé aux programme
+  shift
+  ./tp $@
 else
   echo "Usage: ./build.sh [-a|-m|-r]"
 fi
