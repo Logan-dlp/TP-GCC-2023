@@ -14,7 +14,18 @@ int randomInt(int min, int max)
 
 void formeCreuse(int x, int y)
 {
-
+    for (int i = 0; i < x; ++i) {
+        for (int j = 0; j < y; ++j) {
+            if (i == 0 || i == x-1){
+                std::cout << '*';
+            } else if (j == 0 || j == y-1){
+                std::cout << '*';
+            } else{
+                std::cout << ' ';
+            }
+        }
+        std::cout << std::endl;
+    }
 }
 
 float distanceManhattan(Point2D p1, Point2D p2)
@@ -28,19 +39,25 @@ float distanceEuclidienne(Point2D p1, Point2D p2)
     return std::sqrt(std::pow(p2.x-p1.x, 2) + std::pow(p2.y-p1.y, 2));
 }
 
-void plusProcheVoisin(std::vector<Point2D> points, Point2D P, int dist)
+void plusProcheVoisin(std::vector<Point2D> points,Point2D P, int dist)
 {
+    /*
     std::vector<Point2D> ppv;
-    int rand = randomInt(0, points.size());
-    P = points[rand];
-    for (int i = 0; i < points.size(); ++i) {
+    int Ppvsize = ppv.size();
+    int Psize = points.size();
+    //int rand = randomInt(0, Psize);
+    //P = points[rand];
+    for (int i = 0; i < Psize; ++i) {
         if (distanceEuclidienne(points[i], P) <= dist){
             ppv.push_back(P);
         }
     }
-    for (int i = 0; i < ppv.size(); ++i) {
+    //std::cout << P << std::endl;
+    for (int i = 0; i < Ppvsize; ++i) {
         std::cout << ppv[i] << std::endl;
     }
+     */
+
 }
 
 void plusOuMoins()
